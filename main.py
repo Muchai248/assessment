@@ -27,10 +27,10 @@ def word_frequency(sentence):
     words = sentence.lower().split()
     word_frequency = {}
     for word in words:
-        if word not in word_frequency:
+        if word  in word_frequency:
             word_frequency[word]+=1
         else:
-            word_frequency[word]=0 
+            word_frequency[word]=0
 
         return word_frequency
 
