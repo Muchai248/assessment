@@ -28,8 +28,12 @@ def word_frequency(sentence):
     word_frequency = {}
     for word in words:
         if word not in word_frequency:
-            word_frequency[word]
-            
+            word_frequency[word]+=1
+        else:
+            word_frequency[word]=0 
+
+        return word_frequency
+
 sentence = "This is a test sentence. This sentence is a test."
 result = word_frequency(sentence)
 print(result)
