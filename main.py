@@ -1,10 +1,9 @@
+import string
 # Stacks
-
 def is_balanced(expression):
     stack = []
     open_brackets = "([{"
     closed_brackets = ")]}"
-    
 
     for char in expression:
         if char in open_brackets:
@@ -20,8 +19,8 @@ def is_balanced(expression):
 expression2 = "([)]"
 expression1 = "({}[])"
 
-print(is_balanced(expression2)) 
-print(is_balanced(expression1))  
+print(is_balanced(expression1)) 
+print(is_balanced(expression2))  
  
 
 def remove_duplicates(sequence):
@@ -39,8 +38,6 @@ input_sequence = [2, 3, 2, 4, 5, 3, 6, 7, 5]
 total = remove_duplicates(input_sequence)
 print(total) 
 
-import string
-from unittest import result
 
 def word_frequency(sentence):
     words = sentence.lower().split()
