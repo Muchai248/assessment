@@ -2,43 +2,57 @@
 
 def is_balanced(expression):
     stack = []
+    open_brackets = "([{"
+    closed_brackets = ")]}"
+    
+
     for char in expression:
-        if char in "{[(":
+        if char in open_brackets:
             stack.append(char)
-        elif char in "}])":
+        elif char in closed_brackets:
             if not stack:
                 return False
-            if char == "}" and stack[-1] == "{":
-                stack.pop()
-            elif char == "]" and stack[-1] == "[":
-                stack.pop()
-            elif char == ")" and stack[-1] == "(":
-                stack.pop()
-            else:
+            if open_brackets.index(stack.pop()) != closed_brackets.index(char):
                 return False
-    return not stack
 
+    return len(stack) == 0
+
+expression2 = "([)]"
+expression1 = "({}[])"
+
+print(is_balanced(expression2)) 
+print(is_balanced(expression1))  
+ 
 
 def remove_duplicates(sequence):
-    unique_elements = set(sequence)
-    return list(unique_elements),
+    got = set()
+    total = []
+
+    for item in sequence:
+        if item not in got:
+            total.append(item)
+            got.add(item)
+
+    return total
+
+input_sequence = [2, 3, 2, 4, 5, 3, 6, 7, 5]
+total = remove_duplicates(input_sequence)
+print(total) 
+
+import string
+from unittest import result
 
 def word_frequency(sentence):
     words = sentence.lower().split()
-    word_frequency = {}
-    for word in words:
-        if word  in word_frequency:
-            word_frequency[word]+=1
-        else:
-            word_frequency[word]=0
+    word_freq = {}
 
-        return word_frequency
+    for word in words:
+        word = word.strip(string.punctuation)
+        if word:
+            word_freq[word] = word_freq.get(word, 0) + 1
+
+    return word_freq
 
 sentence = "This is a test sentence. This sentence is a test."
 result = word_frequency(sentence)
 print(result)
-
-expression1 = "([]{})"
-expression2 = "([)]"
-print(is_balanced(expression1)) 
-print(is_balanced(expression2))
